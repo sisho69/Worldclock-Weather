@@ -1,4 +1,4 @@
-import WorldClockList from "./components/WorldClockList";
+import WorldClockList from "./components/worldclocklist";
 
 export default function App() {
   
