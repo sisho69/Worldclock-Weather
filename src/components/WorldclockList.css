@@ -1,0 +1,25 @@
+.worldClockContainer {
+    display: flex;
+    flex-direction: column; /* スマホ:縦並び*/
+    align-items: center;
+    gap: 16px;
+    min-height: 100vh;
+    justify-content: center;
+    background-color: #111;
+}
+
+/* タブレット以上 : 横並び */
+@media (min-width: 768px) {
+    .worldClockContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* PC: カード間を広げる */
+@media (min-width: 1024px) {
+    .worldClockContainer {
+        gap: 24px;
+    }
+} 

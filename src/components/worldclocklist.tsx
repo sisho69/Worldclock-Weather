@@ -1,4 +1,5 @@
 import WorldClock from "./worldClock";
+import "./WorldClockList.css"
 
 export default function WorldClockList() {
     const cities = [
@@ -9,23 +10,13 @@ export default function WorldClockList() {
     ];
 
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column", //縦並びにする
-                alignItems: "center",
-                gap: "16px", // カード間の隙間
-                minHeight: "100vh",
-                justifyContent: "center",
-                backgroundColor: "#111"
-            }}
-            >
-                {cities.map((item) => (
+        <div className="worldClockContainer">
+            {cities.map((item) => (
                     <WorldClock
                     key={item.timezone}
                     city={item.city}
                     timezone={item.timezone}
-                    />
+                />
                 ))}
             </div>
     );

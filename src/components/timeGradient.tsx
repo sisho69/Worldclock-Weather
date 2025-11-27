@@ -1,4 +1,5 @@
 import  React from "react";
+import { getWeatherIcon } from "../utils/weatherUtils";
 
 type Props = {
     timezone: string;
@@ -24,9 +25,9 @@ if (hour >= 4 && hour < 7) {
 } else if (hour >= 11 && hour < 17) {
     gradient = "linear-gradient(135deg, #89f7fe, #66a6ff)";  // 昼
 } else if (hour >= 17 && hour < 21) {
-    gradient = "linear-gradient(135deg, #f093fb, #f5576c)";
+    gradient = "linear-gradient(135deg, #d6796dff, #576ff5ff)";  // 夕方
 } else {
-    gradient = "linear-gradient(135deg, #141e30, #243b55)";
+    gradient = "linear-gradient(135deg, #141e30, #243b55)"; // 夜
 }
 
 const cardStyle: React.CSSProperties = {
@@ -35,34 +36,30 @@ const cardStyle: React.CSSProperties = {
     padding: "2rem",
     color: "white",
     transition: "background 2s ease-in-out",
-};
-
-const iconPath: Record<Props["timeofDay"], string> = {
-    sunny: "/icons/sunny.png",
-    morning: "/icons/morning.png",
-    day: "/icons/day.png",
-    evening: "/icons/evening.png",
-    night: "/icons/night.png",
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
 };
 
 return (
     <div style={cardStyle} className="time-gradient">
-        {/*背景アイコン用画像*/}
-        <img
-            src={iconPath[timeofDay]}
-            alt=""
-            style={{
-                position: "absolute",
-                bottom: "8px",
-                right: "8px",
-                width: "80px",
-                opacity: "0.25", //半透明
-                pointerEvents: "none"                
-            }}
-        />
+        {/*メインコンテンツ*/}
+        <div style={{ flex: 1, zIndex: 1 }}>
+            {children}
+        </div>
 
-        {/* メインコンテンツ */}
-        {children}
+
+        {/*背景アイコン用画像*/}
+            <img
+                src={getWeatherIcon(timeofDay)}
+                alt=""
+                style={{
+                    width: "100px",
+                    opacity: 0.3,
+                    pointerEvents: "none",
+                }}
+        />
     </div>
     );
 };

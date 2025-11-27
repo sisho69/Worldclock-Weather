@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getWeatherIcon } from "../utils/weatherUtils"; 
 
 type WeatherMain = 
 | "Clear" 
@@ -38,7 +39,7 @@ export default function WeatherIcon({ CITY, delayMs = 0 }: Props) {
             const data = JSON.parse(cache);
             const main: WeatherMain = data.weather[0].main;
             setWeatherMain(main);
-            setIconSrc(getIcon(main));
+            setIconSrc(getWeatherIcon(main));
             return;
         }
     
@@ -50,7 +51,7 @@ export default function WeatherIcon({ CITY, delayMs = 0 }: Props) {
 
         const main: WeatherMain = data.weather[0].main;
         setWeatherMain(main);
-        setIconSrc(getIcon(main));
+        setIconSrc(getWeatherIcon(main));
 
         // キャッシュ保存
         localStorage.setItem(`weather_${CITY}`, JSON.stringify(data));
@@ -59,21 +60,6 @@ export default function WeatherIcon({ CITY, delayMs = 0 }: Props) {
         console.error("天気API取得失敗", e);
     }
 }
-
-    // 天気ごとのアイコン対応表
-    function getIcon(w: WeatherMain): string {
-        switch (w) {
-            case "Clear":
-                return "/icons/sunny.png";
-            case "Clouds":
-                return "/icons/cloudy.png";
-            case "Rain":
-            case "Drizzle":
-                return "/icons/rainy.png";
-            default:
-                return "/icons/default.png";
-        }
-    }
 
     return (
         <img src={iconSrc} alt={weatherMain} width={120} />
