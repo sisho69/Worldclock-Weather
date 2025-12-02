@@ -1,15 +1,18 @@
 export function getWeatherIcon(weather: string): string {
-    switch (weather) {
-        case "Clear":
+    const lowerweather = weather.toLowerCase();
+
+    switch (lowerweather) {
+        case "clear":
         case "sunny":
-            return `./icons/${weather}.png`;
-        case "Clouds":
+            return "/icons/sunny.png";
+        case "clouds":
         case "cloudy":
-            return `./icons/${weather}.png`;
-        case "Rain":
-        case "Drizzle":
-            return `./icons/${weather}.png`;
+            return "/icons/cloudy.png";
+        case "rain":
+             return "/icons/rainy.png";
+        case "drizzle":
+            return "/icons/rainy.png";
         default:
-            return `./icons/${weather}.png`;
+            return "/icons/default.png";
     }
 }
