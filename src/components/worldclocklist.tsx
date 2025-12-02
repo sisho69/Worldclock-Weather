@@ -1,5 +1,5 @@
-import WorldClock from "./worldClock";
-import "./worldClocklist.css"
+import WorldClock from "./worldClock"
+import "./Worldclocklist.css"
 
 export default function WorldClockList() {
     const cities = [
