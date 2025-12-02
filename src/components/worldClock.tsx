@@ -49,8 +49,8 @@ import TimeGradient from "./timeGradient";
         const timeofDay = time ? getTimeofDay(time) : "day";
         
         return (
-            <TimeGradient timezone={timezone} timeofDay={timeofDay}>
-            <div
+            <TimeGradient timezone={timezone} timeofDay={timeofDay}> 
+            <div /* カードのカラー情報 */
             style={{
                 borderRadius: "12px",
                 padding: "16px",

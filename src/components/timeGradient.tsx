@@ -56,7 +56,7 @@ return (
                 alt=""
                 style={{
                     width: "100px",
-                    opacity: 0.3,
+                    opacity: 0.7,
                     pointerEvents: "none",
                 }}
         />
