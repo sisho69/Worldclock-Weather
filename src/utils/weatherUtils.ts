@@ -1,15 +1,15 @@
-export function getWeatherIcon(w: string): string {
-    switch (w) {
+export function getWeatherIcon(wweather: string): string {
+    switch (wweather) {
         case "Clear":
         case "sunny":
-            return "/icons/sunny.png";
+            return "./icons/${weather}.png";
         case "Clouds":
         case "cloudy":
-            return "/icons/cloudy.png";
+            return "/icons/${weather}.png";
         case "Rain":
         case "Drizzle":
-            return "/icons/rainy.png";
+            return "/icons/${weather}.png";
         default:
-            return "/icons/default.png";
+            return "/icons/${weather}.png";
     }
 }
