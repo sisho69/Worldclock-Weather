@@ -1,26 +1,27 @@
 export function getWeatherIcon(weather: string): string {
+    const base = import.meta.env.BASE_URL || '/'; // 画像参照用
     const lowerweather = weather.toLowerCase();
 
     switch (lowerweather) {
         case "clear":
         case "sunny":
-            return "/icons/sunny.png";
+            return `${base}/icons/sunny.png`; // ${base}でgithub pageで参照させる
         case "clouds":
         case "cloudy":
-            return "/icons/cloudy.png";
+            return `${base}/icons/cloudy.png`;
         case "rain":
-             return "/icons/rainy.png";
+             return `${base}/icons/rainy.png`;
         case "drizzle":
-            return "/icons/rainy.png";
+            return `${base}/icons/rainy.png`;
         default:
-            return "/icons/cloudy.png";
+            return `${base}/icons/cloudy.png`;
         case "night":  // timegradientとの連携用
-            return "/icons/night.png";
+            return `${base}/icons/night.png`;
         case "morning":  
-            return "/icons/sunny.png";
+            return `${base}/icons/sunny.png`;
         case "day":  
-            return "/icons/sunny.png";
+            return `${base}/icons/sunny.png`;
         case "evening":
-            return "/icons/cloudy.png";
+            return `${base}/icons/cloudy.png`;
     }
 }
