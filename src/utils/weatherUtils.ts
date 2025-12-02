@@ -13,6 +13,6 @@ export function getWeatherIcon(weather: string): string {
         case "drizzle":
             return "/icons/rainy.png";
         default:
-            return "/icons/default.png";
+            return "/icons/cloudy.png";
     }
 }
